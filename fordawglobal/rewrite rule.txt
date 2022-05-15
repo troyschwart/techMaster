@@ -1,0 +1,34 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>	
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html !-f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+#RewriteRule ^custom $1.php [NC,L]
+#RewriteRule ^profile/([0-9]+)/([0-9a-zA-Z_-]+) profile.php?id=$1&name=$2 [NC,L]
+#RewriteRule ^add_transire/([0-9a-zA-Z_-]+) add_transire.php?ed=$1 [NC,L]
+#RewriteRule ^(.*)$ fordawglobal/add_transire.php?ed=$1 [NC,L]
+
+
+#Block access to a file on server
+<Files register.php>
+Order Allow,Deny
+Deny from all
+</Files>
+
+#IndexIgnore *
+
+Options +Indexes
+IndexOptions FancyIndexing
+
+<FilesMatch ^((register|header)\.php$|mysecretfolder|photo\.jpe?g)$>
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+echo "Student name:".preg_replace('#[^0-9a-zA-Z_-]#i','',_GET['id']);

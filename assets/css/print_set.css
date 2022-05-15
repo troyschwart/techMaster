@@ -1,0 +1,15 @@
+@page{
+    size: landscape; 
+}
+body{
+    height: 100vh;
+    /*font: 5vw;*/
+}
+#main_page{
+    padding: 0rem !important;
+    margin: 0rem !important;
+}
+#printBar{
+    display: none;
+}
+
